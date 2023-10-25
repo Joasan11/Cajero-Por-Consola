@@ -66,5 +66,35 @@ function iniciarSesion(){
 }
 
 function operacionesCajero(){
+    let continuar = true;
 
+    while(continuar){
+        console.log("Menú del Cajero:");
+        console.log("1. Consultar saldo");
+        console.log("2. Depositar dinero");
+        console.log("3. Retirar dinero");
+        console.log("4. Transferir dinero");
+        console.log("5. Salir");
+
+        const opcion = prompt("¿Qué opción deseas elegir?");
+
+        switch(opcion){
+            case "1":
+                mostrarSaldo();
+                break;
+            case "2":
+                depositar();
+                break;
+            case "3":
+                retirar();
+                break;
+            case "4":
+                transferir();
+                break;
+            case "5":
+                console.log("Has salido correctamente");
+                continuar = false;
+                break;
+        }
+    }
 }
