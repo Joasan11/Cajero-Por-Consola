@@ -44,12 +44,25 @@ function transferir(){
     }
 }
 
-function esValidaEstructuraIBAN(cuentaAValidar){
-    return /[a-zA-Z]{2}[0-9]{20}$/g.test(cuentaAValidar);
-}
+// function esValidaEstructuraIBAN(cuentaAValidar){
+   // return /[a-zA-Z]{2}[0-9]{20}$/g.test(cuentaAValidar);
+// }
 
 function iniciarSesion(){
-
+    let pin = prompt("Ingresa tu PIN:")
+    while(pin !== PIN_CORRECTO && intentosRestantes > 1){
+        intentosRestantes--;
+        console.log(`PIN incorrecto, le quedan ${intentosRestantes} intentos`);
+        pin = prompt("Introduce el PIN nuevamente");
+    }
+    if(pin == PIN_CORRECTO){
+        console.log("Has iniciado sesión correctamente");
+        mostrarSaldo();
+        operacionesCajero();
+    }
+    else{
+        console.log("PIN incorrecto. Largate de aqui BOBO");
+    }
 }
 
 function operacionesCajero(){
