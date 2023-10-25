@@ -31,7 +31,21 @@ function retirar(){
 }
 
 function transferir(){
+    const transferencia = parseFloat(prompt("Ingrese la cantidad a transferir"));
+    if(isNaN(transferencia) || transferencia <= 0 || transferencia > saldo){
+        console.log("Cantidad inválida. Inténtalo de nuevo");
+    }
+    else{
+        const cuentaDestino = prompt("¿A qué cuenta quieres mandar el dinero?");
+        // esValidaEstructuraIBAN(cuentaDestino);
+        saldo -= transferencia;
+        console.log(`Se han transferido ${transferencia} € a ${cuentaDestino}`);
+        mostrarSaldo();
+    }
+}
 
+function esValidaEstructuraIBAN(cuentaAValidar){
+    return /[a-zA-Z]{2}[0-9]{20}$/g.test(cuentaAValidar);
 }
 
 function iniciarSesion(){
